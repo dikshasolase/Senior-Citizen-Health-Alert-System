@@ -4,11 +4,15 @@ An AI-powered healthcare monitoring and emergency support system developed using
 
 ---
 
-# 🌐 Live Demo
+---
 
-🔗 **Try the Application Here**
+# 🌍 Deployment
 
-**https://senior-citizen-health-alert-system-cis2wdgns9c9seopn2sajy.streamlit.app/**
+The application is deployed using **Streamlit Community Cloud**.
+
+**Live URL**
+
+https://senior-citizen-health-alert-system-cis2wdgns9c9seopn2sajy.streamlit.app/
 
 ---
 
@@ -145,18 +149,6 @@ pip install -r requirements.txt
 ```bash
 streamlit run app.py
 ```
-
----
-
-# 🌍 Deployment
-
-The application is deployed using **Streamlit Community Cloud**.
-
-**Live URL**
-
-https://senior-citizen-health-alert-system-cis2wdgns9c9seopn2sajy.streamlit.app/
-
----
 
 # 📊 Project Workflow
 
