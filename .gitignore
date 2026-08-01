@@ -1,7 +1,53 @@
+# Python
 __pycache__/
-*.pyc
-*.db
-.env
+*.py[cod]
+*$py.class
+
+# Virtual Environment
 .venv/
 venv/
+env/
+ENV/
+
+# Environment Variables
+.env
+.envrc
+
+# Streamlit Secrets
 .streamlit/secrets.toml
+
+# Database
+*.db
+db.sqlite3
+db.sqlite3-journal
+
+# Distribution / Build
+build/
+dist/
+.eggs/
+*.egg-info/
+*.egg
+
+# Logs
+*.log
+
+# Cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+.coverage
+.coverage.*
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# Temporary Files
+tempCodeRunnerFile.py
+
+# OS Files
+.DS_Store
+Thumbs.db
