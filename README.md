@@ -4,8 +4,6 @@ An AI-powered healthcare monitoring and emergency support system developed using
 
 ---
 
----
-
 # 🌍 Deployment
 
 The application is deployed using **Streamlit Community Cloud**.
@@ -122,7 +120,6 @@ SeniorCitizenHealthAlert/
 └── images/
 ```
 
----
 
 # 🚀 Installation
 
@@ -182,20 +179,6 @@ Patient Dashboard
    ├────────► Live Location Tracking
    │
    └────────► Nearby Hospital Search
-
----
-
-# 🔮 Future Enhancements
-
-- AI Chatbot for Healthcare Assistance
-- Medicine Reminder System
-- Doctor Appointment Booking
-- SMS & Email Notifications
-- Cloud Database Integration
-- Wearable Device Integration
-- Voice Assistant Support
-- Mobile Application (Android & iOS)
-- Remote Doctor Monitoring
 
 ---
 
