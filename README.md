@@ -89,37 +89,6 @@ The application uses a Machine Learning model to analyze patient health data and
 
 ---
 
-# 📂 Project Structure
-
-```
-SeniorCitizenHealthAlert/
-│
-├── app.py
-├── database.py
-├── requirements.txt
-├── style.css
-├── README.md
-│
-├── images/
-│   ├── banner.jpg
-│   └── logo.png
-│
-├── model/
-│   └── health_prediction.py
-│
-├── pages/
-│   ├── 1_Patient_Registration.py
-│   ├── 2_Patient_Login.py
-│   ├── 3_Patient_Dashboard.py
-│   ├── 4_Health_Monitoring.py
-│   ├── 5_Emergency_SOS.py
-│   ├── 6_Live_Tracking.py
-│   ├── 7_Nearby_Hospital.py
-│   └── 8_Health_History.py
-│
-└── images/
-```
-
 
 # 🚀 Installation
 
