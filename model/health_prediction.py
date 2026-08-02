@@ -1,60 +1,45 @@
-from sklearn.ensemble import RandomForestClassifier
+import joblib
 import numpy as np
+import os
 
 
-# Sample training data
+# Load Model
 
-X_train = np.array([
-    [80,98,36.5],
-    [120,92,37.5],
-    [140,85,39],
-    [70,99,36],
-    [130,88,38.5]
-])
-
-
-# 0 = Normal
-# 1 = Risk
-
-y_train = np.array([
-    0,
-    1,
-    1,
-    0,
-    1
-])
-
-
-# Train model
-
-model = RandomForestClassifier()
-
-model.fit(
-    X_train,
-    y_train
+path = os.path.join(
+    os.path.dirname(__file__),
+    "health_model.pkl"
 )
+
+
+model = joblib.load(path)
 
 
 
 def predict_health(
+    age,
     heart_rate,
-    oxygen,
-    temperature
+    blood_pressure,
+    oxygen_level,
+    temperature,
+    blood_sugar
 ):
 
 
     data = np.array(
-        [
-            [
-                heart_rate,
-                oxygen,
-                temperature
-            ]
-        ]
+        [[
+            age,
+            heart_rate,
+            blood_pressure,
+            oxygen_level,
+            temperature,
+            blood_sugar
+        ]]
     )
 
 
-    prediction = model.predict(data)
+    prediction = model.predict(
+        data
+    )
 
 
     if prediction[0] == 1:

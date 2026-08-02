@@ -148,6 +148,13 @@ col1, col2 = st.columns(2)
 
 with col1:
 
+    age = st.number_input(
+        "👴 Age",
+        min_value=50,
+        max_value=120,
+        value=65
+    )
+
 
     heart_rate = st.number_input(
         "❤️ Heart Rate (BPM)",
@@ -181,7 +188,14 @@ with col2:
         max_value=100,
         value=98
     )
-
+    
+    
+    blood_sugar = st.number_input(
+    "🩸 Blood Sugar Level",
+    min_value=50,
+    max_value=400,
+    value=110
+)
 
 
 st.divider()
@@ -200,11 +214,17 @@ if st.button(
 
     status = predict_health(
 
+        age,
+
         heart_rate,
+
+        int(blood_pressure.split("/")[0]),
 
         oxygen_level,
 
-        temperature
+        temperature,
+
+        blood_sugar
 
     )
 
