@@ -19,8 +19,8 @@ cursor = conn.cursor()
 
 # ---------------- LOGIN FORM ----------------
 
-username = admin
-password = admin123
+username = st.text_input("Username")
+password = st.text_input("Password", type="password")
 
 if st.button("Login"):
 
