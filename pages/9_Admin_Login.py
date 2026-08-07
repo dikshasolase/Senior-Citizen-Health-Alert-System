@@ -25,7 +25,7 @@ password = st.text_input("Password", type="password")
 if st.button("Login"):
 
     cursor.execute(
-        "SELECT * FROM admin WHERE username=? AND password=?",
+        "SELECT * FROM admin WHERE username=admin AND password=admin123",
         (username, password)
     )
 
