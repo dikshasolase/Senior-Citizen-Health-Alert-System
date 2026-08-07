@@ -1,196 +1,109 @@
 import streamlit as st
-import sqlite3
 import bcrypt
 
+from database import login_patient
 
 
-# Page Configuration
+
+# ---------------- PAGE CONFIG ----------------
 
 st.set_page_config(
     page_title="Patient Login",
-    page_icon="👤",
-    layout="centered"
+    page_icon="🔐"
 )
 
 
 
-# Get User From Database
+# ---------------- TITLE ----------------
 
-def get_patient(email):
-
-    conn = sqlite3.connect("patients.db")
-
-    cursor = conn.cursor()
-
-
-    cursor.execute(
-        """
-        SELECT *
-        FROM patients
-        WHERE email=?
-        """,
-        (email,)
-    )
-
-
-    user = cursor.fetchone()
-
-
-    conn.close()
-
-
-    return user
+st.title("🔐 Patient Login")
 
 
 
-
-# Password Verification
-
-def verify_password(password, encrypted_password):
-
-    return bcrypt.checkpw(
-        password.encode(),
-        encrypted_password.encode()
-    )
-
-
-
-
-# Create Session
-
-if "login" not in st.session_state:
-
-    st.session_state.login = False
-
-
-
-# Page Design
-
-st.title("👤 Patient Login")
-
-
-st.write(
-"Login to access Senior Citizen Health Alert System"
-)
-
-
-st.divider()
-
-
+# ---------------- LOGIN FORM ----------------
 
 email = st.text_input(
-"📧 Email Address"
+    "📧 Email"
 )
-
 
 
 password = st.text_input(
-"🔒 Password",
-type="password"
+    "🔒 Password",
+    type="password"
 )
 
 
 
 
-# Login Button
+# ---------------- LOGIN BUTTON ----------------
 
 if st.button("Login"):
 
 
-    if email and password:
-
-
-        # Find patient
-
-        patient = get_patient(email)
+    user = login_patient(
+        email,
+        password
+    )
 
 
 
-        if patient:
+    if user:
 
 
-            # Check Password
 
-            password_match = verify_password(
+        # Password stored in database
 
-                password,
+        saved_password = user[5]
 
-                patient[5]
 
+
+        if bcrypt.checkpw(
+            password.encode(),
+            saved_password.encode()
+        ):
+
+
+
+            # Session Data
+
+            st.session_state.login = True
+
+            st.session_state.patient_id = user[0]
+
+            st.session_state.patient_name = user[1]
+
+            st.session_state.patient_age = user[2]
+
+            st.session_state.patient_phone = user[3]
+
+            st.session_state.patient_email = user[4]
+
+
+
+            st.success(
+                "✅ Login Successful"
             )
 
 
 
-            if password_match:
-
-
-
-                # Authorization Session
-
-                st.session_state.login = True
-
-                st.session_state.patient_id = patient[0]
-
-                st.session_state.patient_name = patient[1]
-
-                st.session_state.patient_email = patient[4]
-
-
-
-                st.success(
-                "✅ Login Successful"
-                )
-
-
-
-                st.write(
-                f"Welcome {patient[1]}"
-                )
-
-
-
-                # Move to next module
-
-                st.switch_page(
-                    "pages/3_Patient_Dashboard.py"
-                )
-
-
-
-            else:
-
-                st.error(
-                "❌ Incorrect Password"
-                )
+            st.switch_page(
+                "pages/3_Patient_Dashboard.py"
+            )
 
 
 
         else:
 
+
             st.error(
-            "❌ Email not registered"
+                "❌ Wrong Password"
             )
 
 
 
     else:
 
-        st.warning(
-        "Please enter email and password"
+
+        st.error(
+            "❌ Email not registered"
         )
-
-
-
-
-st.divider()
-
-
-
-# Registration Redirect
-
-if st.button("📝 Create New Account"):
-
-
-    st.switch_page(
-        "pages/1_Patient_Registration.py"
-    )

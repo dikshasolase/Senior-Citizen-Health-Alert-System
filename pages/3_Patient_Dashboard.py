@@ -1,7 +1,7 @@
 import streamlit as st
 
 
-# Page Configuration
+# ---------------- PAGE CONFIG ----------------
 
 st.set_page_config(
     page_title="Patient Dashboard",
@@ -11,9 +11,9 @@ st.set_page_config(
 
 
 
-# Authentication Check
+# ---------------- AUTHENTICATION CHECK ----------------
 
-if "login" not in st.session_state or st.session_state.login == False:
+if "login" not in st.session_state or not st.session_state.login:
 
     st.warning(
         "Please Login First"
@@ -23,7 +23,19 @@ if "login" not in st.session_state or st.session_state.login == False:
 
 
 
-# Patient Information
+# ---------------- SESSION DATA CHECK ----------------
+
+if "patient_name" not in st.session_state or "patient_email" not in st.session_state:
+
+    st.warning(
+        "Patient information not found. Please login again."
+    )
+
+    st.stop()
+
+
+
+# ---------------- PATIENT INFORMATION ----------------
 
 patient_name = st.session_state.patient_name
 
@@ -31,9 +43,12 @@ patient_email = st.session_state.patient_email
 
 
 
-# Header
 
-st.title("🏥 Patient Dashboard")
+# ---------------- HEADER ----------------
+
+st.title(
+    "🏥 Patient Dashboard"
+)
 
 
 st.success(
@@ -51,9 +66,12 @@ st.divider()
 
 
 
-# Patient Profile Section
 
-st.subheader("👤 Patient Profile")
+# ---------------- PATIENT PROFILE ----------------
+
+st.subheader(
+    "👤 Patient Profile"
+)
 
 
 col1, col2 = st.columns(2)
@@ -92,9 +110,12 @@ st.divider()
 
 
 
-# Dashboard Cards
 
-st.subheader("Services")
+# ---------------- SERVICES ----------------
+
+st.subheader(
+    "Services"
+)
 
 
 
@@ -105,14 +126,14 @@ col1, col2, col3 = st.columns(3)
 with col1:
 
     st.info(
-    """
-    ❤️
+        """
+        ❤️
 
-    Health Monitoring
+        Health Monitoring
 
-    Check health parameters
-    and AI predictions.
-    """
+        Check health parameters
+        and AI predictions.
+        """
     )
 
 
@@ -120,13 +141,13 @@ with col1:
 with col2:
 
     st.success(
-    """
-    📍
+        """
+        📍
 
-    Live Location
+        Live Location
 
-    Track patient location.
-    """
+        Track patient location.
+        """
     )
 
 
@@ -134,14 +155,15 @@ with col2:
 with col3:
 
     st.error(
-    """
-    🚨
+        """
+        🚨
 
-    Emergency SOS
+        Emergency SOS
 
-    Send emergency alert.
-    """
+        Send emergency alert.
+        """
     )
+
 
 
 
@@ -152,13 +174,13 @@ col4, col5 = st.columns(2)
 with col4:
 
     st.warning(
-    """
-    🏥
+        """
+        🏥
 
-    Nearby Hospital
+        Nearby Hospital
 
-    Find nearest healthcare center.
-    """
+        Find nearest healthcare center.
+        """
     )
 
 
@@ -166,14 +188,15 @@ with col4:
 with col5:
 
     st.info(
-    """
-    👩‍⚕️
+        """
+        👩‍⚕️
 
-    Nurse Assistance
+        Nurse Assistance
 
-    Connect with healthcare support.
-    """
+        Connect with healthcare support.
+        """
     )
+
 
 
 
@@ -181,11 +204,11 @@ st.divider()
 
 
 
-# Navigation Buttons
 
+# ---------------- QUICK ACCESS ----------------
 
 st.subheader(
-"Quick Access"
+    "Quick Access"
 )
 
 
@@ -196,11 +219,15 @@ if st.button("❤️ Health Monitoring"):
         "pages/4_Health_Monitoring.py"
     )
 
+
+
 if st.button("📋 Health History"):
 
     st.switch_page(
         "pages/8_Health_History.py"
     )
+
+
 
 if st.button("📍 Live Location Tracking"):
 
@@ -218,11 +245,13 @@ if st.button("🚨 Emergency SOS"):
 
 
 
+
 st.divider()
 
 
 
-# Logout
+
+# ---------------- LOGOUT ----------------
 
 if st.button("🚪 Logout"):
 
