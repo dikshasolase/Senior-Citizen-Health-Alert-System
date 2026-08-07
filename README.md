@@ -10,7 +10,7 @@ The application is deployed using **Streamlit Community Cloud**.
 
 **Live URL**
 
-https://senior-citizen-health-alert-system-cis2wdgns9c9seopn2sajy.streamlit.app/
+https://senior-citizen-health-alert-system-msqkyfwzdvjp3ahd92mdhr.streamlit.app/
 
 ---
 
