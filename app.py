@@ -49,7 +49,7 @@ st.write("")
 
 # Authentication Buttons
 
-col_btn1, col_btn2 = st.columns(2)
+col_btn1, col_btn2 ,col_btn3 = st.columns(3)
 
 with col_btn1:
 
@@ -66,6 +66,13 @@ with col_btn2:
 
         st.switch_page(
             "pages/2_Patient_Login.py"
+        )
+with col_btn3:
+    
+    if st.button("🔐 Admin Login"):
+        
+        st.switch_page(
+            "pages/9_Admin_Login.py"
         )
 
 # ---------------- FOOTER ----------------
