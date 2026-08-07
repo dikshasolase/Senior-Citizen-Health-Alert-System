@@ -297,8 +297,6 @@ if len(df) > 0:
 
             temperature,
 
-            blood_sugar,
-
             health_status
 
 
