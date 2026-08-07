@@ -5,8 +5,9 @@ from database import register_patient
 
 st.set_page_config(
     page_title="Patient Registration",
-    page_icon="📝"
+    page_icon="📝",
     layout="centered"
+
 )
 
 
