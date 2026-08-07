@@ -186,6 +186,30 @@ def login_patient(email,password):
     return None
 
 
+# ---------------- RESET PASSWORD ----------------
+
+def reset_password(email, new_password):
+
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+    UPDATE patients
+    SET password=?
+    WHERE email=?
+    """,
+    (
+        new_password,
+        email
+    ))
+
+    conn.commit()
+
+    success = cursor.rowcount > 0
+
+    conn.close()
+
+    return success
 
 
 
