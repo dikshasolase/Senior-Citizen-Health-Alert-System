@@ -11,6 +11,7 @@ def create_tables():
     conn = get_connection()
     cursor = conn.cursor()
 
+
     # Patient Table
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS patients(
@@ -44,8 +45,16 @@ def create_tables():
     """, ("admin", "admin123"))
 
 
+    # Remove old demo patient data (ONLY FOR RESET)
+    RESET_PATIENTS = True
+
+    if RESET_PATIENTS:
+        cursor.execute("DELETE FROM patients")
+
+
     conn.commit()
     conn.close()
+
 
 
 # Create database tables when file runs
