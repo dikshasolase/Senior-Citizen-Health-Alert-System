@@ -19,13 +19,13 @@ cursor = conn.cursor()
 
 # ---------------- LOGIN FORM ----------------
 
-username = st.text_input("Username")
-password = st.text_input("Password", type="password")
+username = admin
+password = admin123
 
 if st.button("Login"):
 
     cursor.execute(
-        "SELECT * FROM admin WHERE username=admin AND password=admin123",
+        "SELECT * FROM admin WHERE username=? AND password=?",
         (username, password)
     )
 
