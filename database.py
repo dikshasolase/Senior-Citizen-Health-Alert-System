@@ -7,6 +7,7 @@ def get_connection():
 
 
 def create_tables():
+
     conn = get_connection()
     cursor = conn.cursor()
 
@@ -25,6 +26,7 @@ def create_tables():
     )
     """)
 
+
     # Admin Table
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS admin(
@@ -34,14 +36,17 @@ def create_tables():
     )
     """)
 
-    # Insert default admin
+
+    # Insert Default Admin Account
     cursor.execute("""
-    INSERT OR IGNORE INTO admin(username,password)
-    VALUES('admin','admin123')
-    """)
+    INSERT OR IGNORE INTO admin(username, password)
+    VALUES(?, ?)
+    """, ("admin", "admin123"))
+
 
     conn.commit()
     conn.close()
 
 
+# Create database tables when file runs
 create_tables()
