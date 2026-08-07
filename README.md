@@ -35,6 +35,8 @@ The system enables patients to register, log in securely, monitor their health, 
 - 📍 Live Location Tracking
 - 🏥 Nearby Hospital Search
 - 💾 SQLite Database Management
+- 📂 Health Dataset Integration
+- 🧠 Trained Machine Learning Model (.pkl) Integration
 
 ---
 
@@ -42,9 +44,40 @@ The system enables patients to register, log in securely, monitor their health, 
 
 The application uses a Machine Learning model to analyze patient health data and predict health status.
 
+# 📂 Dataset
+
+The system uses a health monitoring dataset containing patient health parameters.
+
+Dataset File:
+dataset/
+└── health_dataset.csv
+
+The dataset includes:
+
+- Age
+- Heart Rate
+- Blood Pressure
+- Oxygen Saturation (SpO₂)
+- Body Temperature
+- Blood Sugar Level
+- Health Status Label
+
 ### Algorithm Used
 
 - Random Forest Classifier
+
+### Model Training
+
+- Health dataset is used for training the machine learning model.
+- The trained model is saved as `health_model.pkl`.
+- The prediction model is loaded into the Streamlit application for real-time health status prediction.
+
+### Model Files
+
+model/
+│
+├── train_model.py # Model training script
+└── health_model.pkl # Trained ML model
 
 ### Input Parameters
 
