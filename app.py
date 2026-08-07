@@ -1,4 +1,9 @@
 import streamlit as st
+from database import create_tables
+
+
+# Create database tables
+create_tables()
 
 # Page Configuration
 st.set_page_config(
