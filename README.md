@@ -18,12 +18,14 @@ https://senior-citizen-health-alert-system-cis2wdgns9c9seopn2sajy.streamlit.app/
 
 The **Senior Citizen Health Alert System** is designed to improve healthcare services for elderly people by providing an intelligent platform for monitoring health conditions, storing medical records, and offering emergency assistance.
 
-The system enables patients to register, log in securely, monitor their health, maintain health history, locate nearby hospitals, and receive AI-based health predictions.
+The system also includes a dedicated **Admin Panel** that allows administrators to securely log in, view all registered patients, search patient records, and access each patient's health monitoring history for effective healthcare management.
 
 ---
 
 # ✨ Key Features
-
+- 👨‍💼 Admin Login
+- 📋 Admin Dashboard
+- 🔍 Patient Search & Health Record Management
 - 🏠 Home Page
 - 👤 Patient Registration
 - 🔐 Secure Patient Login
@@ -92,9 +94,21 @@ model/
 
 - ✅ Healthy
 - ⚠️ At Risk
-- 🚨 Critical
 
 ---
+# 👨‍💼 Admin Module
+
+The application provides a secure Admin Panel for managing patient information and monitoring healthcare records.
+
+### Admin Features
+
+- 🔐 Secure Admin Login
+- 👥 View All Registered Patients
+- 🔍 Search Patients by Name, Mobile Number, or Email
+- 📋 View Patient Details
+- ❤️ Access Complete Health Monitoring History
+- 📊 Dashboard Showing Patient Statistics
+- 🚪 Secure Admin Logout
 
 # 🛠️ Technology Stack
 
@@ -151,36 +165,51 @@ streamlit run app.py
 
 # 📊 Project Workflow
 
-```
+```text
 Start
    │
    ▼
 Home Page
    │
-   ▼
-Patient Registration
-   │
-   ▼
-Patient Login
-   │
-   ▼
-Patient Dashboard
-   │
-   ├────────► Health Monitoring
+   ├────────► Patient Registration
    │              │
    │              ▼
-   │       AI Health Prediction
+   │         Patient Login
    │              │
    │              ▼
-   │      Save Health Records
+   │      Patient Dashboard
+   │              │
+   │              ├────────► Health Monitoring
+   │              │              │
+   │              │              ▼
+   │              │       AI Health Prediction
+   │              │              │
+   │              │              ▼
+   │              │      Save Health Records
+   │              │
+   │              ├────────► Health History
+   │              │
+   │              ├────────► Emergency SOS
+   │              │
+   │              ├────────► Live Location Tracking
+   │              │
+   │              └────────► Nearby Hospital Search
    │
-   ├────────► Health History
-   │
-   ├────────► Emergency SOS
-   │
-   ├────────► Live Location Tracking
-   │
-   └────────► Nearby Hospital Search
+   └────────► Admin Login
+                  │
+                  ▼
+           Admin Dashboard
+                  │
+                  ├────────► View Registered Patients
+                  │
+                  ├────────► Search Patient
+                  │
+                  ├────────► View Patient Details
+                  │
+                  ├────────► View Health Records
+                  │
+                  └────────► Logout
+```
 
 ---
 
